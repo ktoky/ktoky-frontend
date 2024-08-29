@@ -205,3 +205,32 @@ my-nextjs-app/
 
 ```
 
+
+## Contributing
+
+
+- Create a New Branch
+## Create a new branch for your feature or bug fix:
+``` bash 
+git checkout -b feature/your-feature-name
+```
+Make sure to name your branch descriptively based on the feature you're adding or the bug you're fixing.
+
+## Make Your Changes :
+
+Implement your feature or fix the bug in your branch. Once you've made your changes, commit them with a meaningful commit message:
+
+``` bash
+git commit -m "Add your feature"
+```
+ ## Push to Your Branch
+Push your branch to your forked repository:
+
+
+
+``` bash
+ git push origin feature/your-feature-name
+```
+## Create a Pull Request
+
+Create a pull request (PR) to the development branch of the original repository on GitHub. Please do not send pull requests to the main branch. The main branch is reserved for stable, production-ready code.
