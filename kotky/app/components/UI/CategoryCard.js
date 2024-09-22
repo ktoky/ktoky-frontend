@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CategoryCard({ img }) {
   return (
-    <div className="bg-[#F4F6FA] rounded-[10px] px-[30px] pt-10 pb-7 hover:bg-white border border-[#BCE3C9] transition duration-150 group cursor-pointer hover:shadow-custom flex items-center justify-center flex-col">
+    <Link
+      href="/home/pages/product"
+      className="bg-[#F4F6FA] rounded-[10px] px-[30px] pt-10 pb-7 hover:bg-white border border-[#BCE3C9] transition duration-150 group cursor-pointer hover:shadow-custom flex items-center justify-center flex-col"
+    >
       <div>
         <Image
           src={img}
@@ -16,6 +20,6 @@ export default function CategoryCard({ img }) {
       <span className="text-[15px] font-normal text-[#7e7e7e] lato">
         2 items
       </span>
-    </div>
+    </Link>
   );
 }

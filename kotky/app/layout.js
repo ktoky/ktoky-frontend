@@ -3,6 +3,7 @@ import "./styles/globals.css";
 import Navbar from "./components/Layout/Navbar";
 import Head from "next/head";
 import Menubar from "./components/Layout/Menubar";
+import Footer from "./components/Layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +24,11 @@ export default function RootLayout({ children }) {
           referrerpolicy="no-referrer"
         />
       </Head>
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <Navbar />
         <Menubar />
         {children}
+        <Footer />
       </body>
     </html>
   );

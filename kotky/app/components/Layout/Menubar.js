@@ -2,6 +2,7 @@ import WidgetsIcon from "@mui/icons-material/Widgets";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import Link from "next/link";
 
 export default function Menubar() {
   return (
@@ -18,13 +19,27 @@ export default function Menubar() {
         </p>
       </div>
       <ul className="flex items-center gap-14">
-        <li className="text-Emphasis text-base font-bold">Home</li>
-        <li className="text-Emphasis text-base font-bold">About</li>
-        <li className="text-Emphasis text-base font-bold">Shop</li>
-        <li className="text-Emphasis text-base font-bold">Vendors</li>
-        <li className="text-Emphasis text-base font-bold">Mega Menu</li>
-        <li className="text-Emphasis text-base font-bold">Blog</li>
-        <li className="text-Emphasis text-base font-bold">Contact</li>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          Home
+        </Link>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          About
+        </Link>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          Shop
+        </Link>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          Vendors
+        </Link>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          Mega Menu
+        </Link>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          Blog
+        </Link>
+        <Link href="/" className="text-Emphasis text-base font-bold">
+          Contact
+        </Link>
       </ul>
       <div className="flex items-center gap-2">
         <SupportAgentIcon className="scale-[2]" />

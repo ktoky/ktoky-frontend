@@ -28,6 +28,9 @@ import GrassIcon from "@mui/icons-material/Grass";
 import LiquorIcon from "@mui/icons-material/Liquor";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import CloseIcon from "@mui/icons-material/Close";
+import TagBtn from "./components/UI/TagBtn";
+import Category from "./components/Product/Category";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -38,131 +41,9 @@ export default function Home() {
           {/* Sidebar Start */}
           <aside className="flex flex-col gap-10">
             {/* Category Start */}
-            <div className="w-[285px] h-fit bg-white shadow-custom border border-[#ececec] p-5 rounded-2xl">
-              <h1 className="text-[#253D4E] text-2xl font-bold border-b border-b-[#ececec] pb-3 relative">
-                Category
-                <span className="absolute bottom-0 left-0 w-2/5 h-[2px] bg-[#BCE3C9]" />
-              </h1>
-              <ul className="mt-2 space-y-2">
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <SanitizerIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Baking material</span>
-                    <span className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E] rounded-full">
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <EggIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Bread and Juice</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <CheckroomIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Clothing &amp; beauty</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                          rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <BrandingWatermarkIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Deals of The Day</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <BrandingWatermarkIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Fresh Fruit</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <SetMealIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Fresh Seafood</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                          rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <WaterDropIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Milks and Dairies</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <GrassIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Vegetables</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <LiquorIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Wines &amp; Drinks</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-                <li className="flex items-center justify-between gap-5 border border-[#ececec] p-2 rounded">
-                  <FormatListBulletedIcon className="text-3xl w-14 overflow-hidden" />
-                  <p className="flex justify-between w-full items-center">
-                    <span className="text-base">Uncategorized</span>
-                    <span
-                      className="w-6 h-6 flex items-center justify-center text-center bg-[#BCE3C9] text-[#253D4E]
-                              rounded-full"
-                    >
-                      8
-                    </span>
-                  </p>
-                </li>
-              </ul>
-            </div>
+
+            <Category title="Category" />
+
             {/* Category Ends */}
             <div className="w-[285px] h-fit bg-white shadow-custom border border-[#ececec] p-5 rounded-2xl">
               <h1 className="text-[#253D4E] text-2xl font-bold border-b border-b-[#ececec] pb-[20px] mb-[30px] relative">
@@ -170,30 +51,12 @@ export default function Home() {
                 <span className="absolute bottom-0 left-0 w-2/5 h-[2px] bg-[#BCE3C9]" />
               </h1>
               <div className="flex items-center flex-wrap gap-2">
-                <p className="hover:-translate-y-2 border text-[#3BB77E] leading-7 border-[#ececec] bg-white rounded-[30px] shadow-custom py-1 pr-4 pl-[20px] font-bold text-[15px] transition duration-300">
-                  <CloseIcon className="scale-75" />
-                  <span>Brown</span>
-                </p>
-                <p className="hover:-translate-y-2 border text-[#3BB77E] leading-7 border-[#ececec] bg-white rounded-[30px] shadow-custom py-1 pr-4 pl-[20px] font-bold text-[15px] transition duration-300">
-                  <CloseIcon className="scale-75" />
-                  <span>Coffes</span>
-                </p>
-                <p className="hover:-translate-y-2 border text-[#3BB77E] leading-7 border-[#ececec] bg-white rounded-[30px] shadow-custom py-1 pr-4 pl-[20px] font-bold text-[15px] transition duration-300">
-                  <CloseIcon className="scale-75" />
-                  <span>Hodo Foods</span>
-                </p>
-                <p className="hover:-translate-y-2 border text-[#3BB77E] leading-7 border-[#ececec] bg-white rounded-[30px] shadow-custom py-1 pr-4 pl-[20px] font-bold text-[15px] transition duration-300">
-                  <CloseIcon className="scale-75" />
-                  <span>Meats</span>
-                </p>
-                <p className="hover:-translate-y-2 border text-[#3BB77E] leading-7 border-[#ececec] bg-white rounded-[30px] shadow-custom py-1 pr-4 pl-[20px] font-bold text-[15px] transition duration-300">
-                  <CloseIcon className="scale-75" />
-                  <span>Organic</span>
-                </p>
-                <p className="hover:-translate-y-2 border text-[#3BB77E] leading-7 border-[#ececec] bg-white rounded-[30px] shadow-custom py-1 pr-4 pl-[20px] font-bold text-[15px] transition duration-300">
-                  <CloseIcon className="scale-75" />
-                  <span>Snack</span>
-                </p>
+                <TagBtn text={"Brown"} />
+                <TagBtn text={"Coffes"} />
+                <TagBtn text={"Hodo Foods"} />
+                <TagBtn text={"Meats"} />
+                <TagBtn text={"Organic"} />
+                <TagBtn text={"Snack"} />
               </div>
             </div>
           </aside>
@@ -204,14 +67,14 @@ export default function Home() {
               <h1 className="text-7xl leading-none font-bold mb-10">
                 Fresh Vegetables <br /> Big discount
               </h1>
-              <p className="text-3xl mb-16 text-[#7E7E7E] lato font-semibold">
+              <p className="text-3xl mb-16 text-[#7E7E7E] font-lato font-semibold">
                 Save up to 50% off on your first order
               </p>
               <div className="bg-white max-w-[450px] rounded-[50px] h-16 flex">
                 <input
                   type="email"
                   placeholder="Your Email Address"
-                  className="w-full h-full rounded-[50px] px-[30px] lato border-none outline-none placeholder:font-bold"
+                  className="w-full h-full rounded-[50px] px-[30px] font-lato border-none outline-none placeholder:font-bold"
                 />
                 <button className="h-full rounded-[50px] px-[30px] border-none outline-none text-base  bg-[#3BB77E] text-white">
                   subscribe
@@ -223,7 +86,7 @@ export default function Home() {
             <div>
               {/* Navigation start */}
               <div className="flex items-center justify-between mt-5">
-                <p className="text-[#253D4E] text-3xl font-bold pb-3 lato">
+                <p className="text-[#253D4E] text-3xl font-bold pb-3 font-lato">
                   Populer Products
                 </p>
                 <ul className="flex items-center gap-7">
@@ -283,7 +146,6 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-3">
             <p className="bg-[#F2F3F4] hover:bg-[#3BB77E] text-[#7E7E7E] hover:text-white cursor-pointer transition duration-200 rounded-[50%] text-2xl h-10 w-10 flex items-center justify-center">
-              {/* <i className="fa-solid fa-arrow-left" /> */}
               <ArrowBackIcon />
             </p>
             <p className="bg-[#F2F3F4] hover:bg-[#3BB77E] text-[#7E7E7E] hover:text-white cursor-pointer transition duration-200 rounded-[50%] text-2xl h-10 w-10 flex items-center justify-center">
@@ -351,7 +213,7 @@ export default function Home() {
         </div>
         {/* Top Selling, Trending Products, Recently added, Top Rated Ends */}
         {/* Subscription Start */}
-        <div className="bgSubccription mb-10 rounded-[20px] relative bg-cover bg-center bg-no-repeat w-full min-h-[230px]">
+        <div className="bgSubccription mb-10 rounded-[20px] relative w-full min-h-[230px]">
           <div className="px-[78px] py-[84px]">
             <h1 className="mb-5 text-7xl leading-none text-[#253D4E] font-bold">
               Stay home &amp; get your daily
@@ -366,7 +228,7 @@ export default function Home() {
               <input
                 type="email"
                 placeholder="Your Email Address"
-                className="w-full h-full rounded-[50px] px-[30px] lato border-none outline-none placeholder:font-bold"
+                className="w-full h-full rounded-[50px] px-[30px] font-lato border-none outline-none placeholder:font-bold"
               />
               <button className="h-full rounded-[50px] px-[30px] border-none outline-none text-base  bg-[#3BB77E] text-white">
                 subscribe

@@ -5,6 +5,7 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -49,17 +50,23 @@ export default function Navbar() {
             0
           </span>
         </li>
-        <li className="flex items-center gap-1 relative font-lato cursor-pointer">
+        <Link
+          href="/home/pages/cart"
+          className="flex items-center gap-1 relative font-lato cursor-pointer"
+        >
           <ShoppingCartIcon />
           Cart
           <span className="bg-primary w-7 h-7 text-center rounded-full text-white absolute -top-5 left-2">
             0
           </span>
-        </li>
-        <li className="flex items-center gap-1 font-lato cursor-pointer">
+        </Link>
+        <Link
+          href="/authentication/login"
+          className="flex items-center gap-1 font-lato cursor-pointer"
+        >
           <PersonOutlineIcon />
           Account
-        </li>
+        </Link>
       </ul>
     </nav>
   );
