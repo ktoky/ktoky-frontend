@@ -30,7 +30,7 @@ export default async function page() {
       </div>
       <div className="flex justify-between gap-10">
         <div className="w-2/3">
-          <h1 className="text-3xl font-bold text-Emphasis mt-5">
+          <h1 className="text-3xl font-bold text-Emphasis mt-5 mb-3">
             Billing Details
           </h1>
           <Form className="mt-10">

@@ -6,31 +6,12 @@ import img1 from "@/public/images/banner-2.png";
 import img2 from "@/public/images/banner-3.png";
 import CategoryCard from "./components/UI/CategoryCard";
 import categoryImage from "@/public/images/category-2.png";
-import SanitizerIcon from "@mui/icons-material/Sanitizer";
-import EggIcon from "@mui/icons-material/Egg";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
-import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
-import SetMealIcon from "@mui/icons-material/SetMeal";
 import TTRTCard from "./components/UI/TTRTCard";
-import Image from "next/image";
-import subscriptionBanner from "@/public/images/banner-9-min.png";
-import icon1 from "@/public/images/icon-1.png";
-import icon2 from "@/public/images/icon-2.png";
-import icon3 from "@/public/images/icon-3.png";
-import icon4 from "@/public/images/icon-4.png";
-import icon5 from "@/public/images/icon-5.png";
-import FasilitiesCard from "./components/UI/FasilitiesCard";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import GrassIcon from "@mui/icons-material/Grass";
-import LiquorIcon from "@mui/icons-material/Liquor";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import CloseIcon from "@mui/icons-material/Close";
 import TagBtn from "./components/UI/TagBtn";
 import Category from "./components/Product/Category";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -212,63 +193,6 @@ export default function Home() {
           </div>
         </div>
         {/* Top Selling, Trending Products, Recently added, Top Rated Ends */}
-        {/* Subscription Start */}
-        <div className="bgSubccription mb-10 rounded-[20px] relative w-full min-h-[230px]">
-          <div className="px-[78px] py-[84px]">
-            <h1 className="mb-5 text-7xl leading-none text-[#253D4E] font-bold">
-              Stay home &amp; get your daily
-              <br />
-              needs from our shop
-            </h1>
-            <p className="font-lato text-lg mb-[45px]">
-              Start Your Daily Shopping with{" "}
-              <span className="font-lato text-[#3BB77E]">Nest Mart</span>
-            </p>
-            <div className="bg-white max-w-[450px] rounded-[50px] h-16 flex">
-              <input
-                type="email"
-                placeholder="Your Email Address"
-                className="w-full h-full rounded-[50px] px-[30px] font-lato border-none outline-none placeholder:font-bold"
-              />
-              <button className="h-full rounded-[50px] px-[30px] border-none outline-none text-base  bg-[#3BB77E] text-white">
-                subscribe
-              </button>
-            </div>
-          </div>
-          <Image
-            src={subscriptionBanner}
-            className="w-2/5 absolute bottom-0 right-[50px]"
-            alt=""
-          />
-        </div>
-        {/* Subscription Ends */}
-        <div className="grid grid-cols-5 gap-5">
-          <FasilitiesCard
-            image={icon1}
-            title="Best prices &amp; offers"
-            text="Orders $50 or more"
-          />
-          <FasilitiesCard
-            image={icon2}
-            title={"Free Delivery"}
-            text={"24/7 amazing services"}
-          />
-          <FasilitiesCard
-            image={icon3}
-            title={"Great daily deal"}
-            text={"When you sign up"}
-          />
-          <FasilitiesCard
-            image={icon4}
-            title={"Wide assortment"}
-            text={"Mega Discounts"}
-          />
-          <FasilitiesCard
-            image={icon5}
-            title={"Easy returns"}
-            text={"Within 30 days"}
-          />
-        </div>
       </main>
       {/* Main content End */}
     </>
