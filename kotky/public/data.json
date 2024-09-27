@@ -1,0 +1,52 @@
+{
+  "modelList": [
+    {
+      "name": "iPhone 15 Pro",
+      "display": "6.1 inch display",
+      "price": "999",
+      "perMonth": "41.62",
+      "monthDuration": "24"
+    },
+    {
+      "name": "iPhone 15 Pro Max",
+      "display": "6.7 inch display",
+      "price": "1199",
+      "perMonth": "49.96",
+      "monthDuration": "24"
+    }
+  ],
+  "ColorList": [
+    {
+      "color": "#bab4a9"
+    },
+    {
+      "color": "#3d4555"
+    },
+    {
+      "color": "#f2f1eb"
+    },
+    {
+      "color": "#3f4042"
+    }
+  ],
+  "storageList": [
+    {
+      "storage": "256GB",
+      "price": "999",
+      "perMonth": "41.62",
+      "monthDuration": "24"
+    },
+    {
+      "storage": "512GB",
+      "price": "1199",
+      "perMonth": "49.96",
+      "monthDuration": "24"
+    },
+    {
+      "storage": "1TB",
+      "price": "1399",
+      "perMonth": "58.29",
+      "monthDuration": "24"
+    }
+  ]
+}
