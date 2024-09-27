@@ -9,7 +9,7 @@ import Card from "@/app/components/Product/Card";
 
 export default function Discription() {
   return (
-    <div className="ml-20">
+    <div className="lg:ml-20">
       <Tabs defaultValue="discription" className="w-full px-5">
         <TabsList className="grid grid-cols-2 bg-transparent w-[200px]">
           <TabsTrigger
@@ -42,9 +42,9 @@ export default function Discription() {
             because.
           </p>
         </TabsContent>
-        <TabsContent value="reviews" className="w-[800px]">
+        <TabsContent value="reviews" className="w-full lg:w-[800px]">
           <h4 className="font-bold text-lg">Customer questions & answers</h4>
-          <div className="border mt-5 border-Emphasis/20 rounded-lg p-4 flex items-center gap-10">
+          <div className="border mt-5 border-Emphasis/20 rounded-lg p-4 flex items-start md:items-center gap-10">
             <div className="flex items-center justify-center flex-col">
               <Avatar className="h-20 w-20">
                 <AvatarImage
@@ -56,8 +56,8 @@ export default function Discription() {
               <h1 className="font-semibold text-Emphasis mt-2">Sienna</h1>
             </div>
             <div>
-              <div className="flex items-center justify-between">
-                <p>December 4, 2024 at 3:12 pm</p>
+              <div className="md:flex items-center justify-between">
+                <p className="text-sm">December 4, 2024 at 3:12 pm</p>
                 <div>
                   <Star className="text-sm text-yellow-400" />
                   <Star className="text-sm text-yellow-400" />
@@ -66,7 +66,7 @@ export default function Discription() {
                   <Star className="text-sm text-yellow-400" />
                 </div>
               </div>
-              <p className="mt-3">
+              <p className="mt-3 text-sm">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Delectus, suscipit exercitationem accusantium obcaecati quos
                 voluptate nesciunt facilis itaque modi commodi dignissimos sequi
@@ -90,7 +90,7 @@ export default function Discription() {
         <h1 className="text-3xl ml-4 mt-5 font-semibold text-Emphasis">
           Related products
         </h1>
-        <div className="grid grid-cols-5 gap-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5 px-5 mb-5 md:mb-0">
           <Card />
           <Card />
           <Card />

@@ -76,8 +76,8 @@ export default function PhotoShow() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div>
-          <h1 className="text-4xl text-Emphasis font-bold">
+        <div className="mt-5 lg:mt-0">
+          <h1 className="text-2xl md:text-4xl text-Emphasis font-bold">
             Seeds of Change Organic Quinoa, Brown
           </h1>
           <div className="flex items-center gap-2 text-sm">
@@ -90,14 +90,16 @@ export default function PhotoShow() {
             </div>
             (32 reviews)
           </div>
-          <h1 className="text-6xl font-bold text-primary mt-5">$38</h1>
-          <p className="text-base text-primary mt-3 font-semibold">
+          <h1 className="text-3xl md:text-6xl font-bold text-primary mt-5">
+            $38
+          </h1>
+          <p className="text-sm md:text-base text-primary mt-3 font-semibold">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
             rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus
             dolore impedit fuga eum eligendi.
           </p>
-          <div className="flex gap-5 items-center mt-5">
-            <p className="font-semibold">Size / Weight:</p>
+          <div className="flex gap-3 md:gap-5 items-center mt-5">
+            <p className="font-semibold text-sm">Size/Weight:</p>
             <Weight />
           </div>
           <div className="flex gap-5 mt-6 items-center">

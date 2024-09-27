@@ -9,14 +9,14 @@ export default function page() {
   return (
     <main className="px-3 flex justify-between gap-8">
       <div>
-        <div className="bgSubccription rounded-[20px] px-20 py-[70px] flex justify-between items-center">
+        <div className="bgSubccription rounded-[20px] px-[50px] md:px-20 py-[40px] md:py-[70px] flex justify-between items-center">
           <div>
             <h1 className="text-5xl mb-[15px] text-Emphasis font-bold">
               Snack
             </h1>
             <BreadCumb bLink1="Home" bLink2="Shop" bItem="Snack" />
           </div>
-          <div className="flex gap-5">
+          <div className="hidden lg:flex gap-5">
             <TagBtn text="Cabbage" />
             <TagBtn text="Broccoli" />
             <TagBtn text="Artichoke" />
@@ -26,7 +26,7 @@ export default function page() {
         </div>
         <div className="flex justify-between gap-8 mt-5">
           <div>
-            <div className="flex justify-between items-center mb-3">
+            <div className="flex justify-between flex-wrap items-center mb-3">
               <p className="text-sm font-medium text-Emphasis">
                 We found <span className="text-primary">29</span> items for you!
               </p>
@@ -48,7 +48,7 @@ export default function page() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
               <Card />
               <Card />
               <Card />
@@ -57,7 +57,7 @@ export default function page() {
               <Card />
             </div>
           </div>
-          <div>
+          <div className="hidden lg:block">
             <ProductSidebar />
             <PriceFilter />
           </div>

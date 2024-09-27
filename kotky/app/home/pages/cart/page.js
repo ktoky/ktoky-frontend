@@ -4,8 +4,8 @@ import Total from "../components/Total";
 export default function page() {
   return (
     <div className="px-3">
-      <div className="flex items-start justify-between gap-10">
-        <div className="w-2/3">
+      <div className="block lg:flex items-start justify-between gap-10">
+        <div className="w-full lg:w-2/3">
           <div className="flex items-end justify-between">
             <div>
               <h1 className="text-5xl font-bold">Your Cart</h1>
@@ -19,7 +19,7 @@ export default function page() {
             <TableD />
           </div>
         </div>
-        <div className="w-1/3 mt-24">
+        <div className="w-full lg:w-1/3 md:mt-24 my-5 md:my-0">
           <Total />
         </div>
       </div>

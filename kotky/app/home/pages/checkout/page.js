@@ -13,6 +13,7 @@ import Image from "next/image";
 import img from "@/public/images/product-1-1.jpg";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
 export default async function page() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -28,13 +29,13 @@ export default async function page() {
           There are 3 products in your cart
         </p>
       </div>
-      <div className="flex justify-between gap-10">
-        <div className="w-2/3">
+      <div className="md:flex justify-between gap-10">
+        <div className="w-full md:w-2/3">
           <h1 className="text-3xl font-bold text-Emphasis mt-5 mb-3">
             Billing Details
           </h1>
           <Form className="mt-10">
-            <div className="flex gap-4">
+            <div className="md:flex gap-4 space-y-4 md:space-y-0">
               <Input
                 placeholder="First Name*"
                 className="p-3 text-lg font-semibold flex-grow"
@@ -45,7 +46,7 @@ export default async function page() {
               />
             </div>
 
-            <div className="flex gap-4 mt-4">
+            <div className="md:flex gap-4 mt-4 space-y-4 md:space-y-0">
               <Input
                 placeholder="Address*"
                 className="p-3 text-lg font-semibold flex-grow"
@@ -56,7 +57,7 @@ export default async function page() {
               />
             </div>
 
-            <div className="flex gap-4 mt-4">
+            <div className="md:flex gap-4 mt-4 space-y-4 md:space-y-0">
               <Select className="flex-grow">
                 <SelectTrigger className="w-full text-lg font-semibold">
                   <SelectValue placeholder="Select Your Country" />
@@ -77,7 +78,7 @@ export default async function page() {
               />
             </div>
 
-            <div className="flex gap-4 mt-4">
+            <div className="md:flex gap-4 mt-4 space-y-4 md:space-y-0">
               <Input
                 placeholder="Postcode/ZIP*"
                 className="p-3 text-lg font-semibold flex-grow"
@@ -88,7 +89,7 @@ export default async function page() {
               />
             </div>
 
-            <div className="flex gap-4 mt-4">
+            <div className="md:flex gap-4 mt-4 space-y-4 md:space-y-0">
               <Input
                 placeholder="Email Address*"
                 className="p-3 text-lg font-semibold flex-grow"
@@ -107,36 +108,36 @@ export default async function page() {
             </div>
           </Form>
         </div>
-        <div className="w-1/3 border shadow-md p-5">
+        <div className="w-full md:w-1/3 border shadow-md p-5 mb-5 md:mb-0">
           <div className="flex items-center justify-between border-b">
             <h3 className="text-3xl font-bold text-Emphasis">Your Order</h3>
             <p className="text-xl font-semibold text-tertiary">Subtotal</p>
           </div>
           <div className="space-y-5">
-            <div className="flex items-center justify-between gap-7">
+            <div className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
               <Image src={img} alt="Product Image" width={100} height={100} />
-              <div className="flex items-center justify-between">
-                <h4 className="text-lg font-bold">
+              <div className="flex items-center justify-between gap-5">
+                <h4 className="text-base md:text-lg font-bold">
                   Yidarton Women Summer Blue
                 </h4>
                 <p className="font-semibold">X1</p>
               </div>
               <p className="text-3xl font-bold text-primary">$13.3</p>
             </div>
-            <div className="flex items-center justify-between gap-7">
+            <div className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
               <Image src={img} alt="Product Image" width={100} height={100} />
-              <div className="flex items-center justify-between">
-                <h4 className="text-lg font-bold">
+              <div className="flex items-center justify-between gap-5">
+                <h4 className="text-base md:text-lg font-bold">
                   Yidarton Women Summer Blue
                 </h4>
                 <p className="font-semibold">X1</p>
               </div>
               <p className="text-3xl font-bold text-primary">$13.3</p>
             </div>
-            <div className="flex items-center justify-between gap-7">
+            <div className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
               <Image src={img} alt="Product Image" width={100} height={100} />
-              <div className="flex items-center justify-between">
-                <h4 className="text-lg font-bold">
+              <div className="flex items-center justify-between gap-5">
+                <h4 className="text-base md:text-lg font-bold">
                   Yidarton Women Summer Blue
                 </h4>
                 <p className="font-semibold">X1</p>
@@ -166,6 +167,7 @@ export default async function page() {
                 <Label htmlFor="OnlineGetway">Online Getway</Label>
               </div>
             </RadioGroup>
+            <Button className="hover:bg-primary mt-5">Place an Order</Button>
           </div>
         </div>
       </div>

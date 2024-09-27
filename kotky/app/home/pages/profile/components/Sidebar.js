@@ -3,12 +3,16 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Sidebar() {
-  const [color, setColor] = useState("profile");
+  const pathname = window.location.pathname;
+  const segments = pathname.split("/").filter(Boolean);
+  const lastSegment = segments[segments.length - 1];
+  const [color, setColor] = useState(lastSegment);
+
   const handleColor = (e) => {
     setColor(e);
   };
   return (
-    <div className="h-full text-white w-72">
+    <div className="h-full text-white md:w-72 w-full">
       <ul className="px-5 py-3 space-y-1 bg-primary rounded-r-lg">
         <Link className="block" href="/home/pages/profile">
           <li
