@@ -36,60 +36,62 @@ export default function RootLayout({ children }) {
         <Navbar />
         <Menubar />
         {children}
-        <div className="bgSubccription my-10 rounded-[20px] relative w-full min-h-[230px]">
-          <div className="px-[78px] py-[84px]">
-            <h1 className="mb-5 text-7xl leading-none text-[#253D4E] font-bold">
-              Stay home &amp; get your daily
-              <br />
-              needs from our shop
-            </h1>
-            <p className="font-lato text-lg mb-[45px]">
-              Start Your Daily Shopping with{" "}
-              <span className="font-lato text-[#3BB77E]">Nest Mart</span>
-            </p>
-            <div className="bg-white max-w-[450px] rounded-[50px] h-16 flex">
-              <input
-                type="email"
-                placeholder="Your Email Address"
-                className="w-full h-full rounded-[50px] px-[30px] font-lato border-none outline-none placeholder:font-bold"
-              />
-              <button className="h-full rounded-[50px] px-[30px] border-none outline-none text-base  bg-[#3BB77E] text-white">
-                subscribe
-              </button>
+        <div className="px-3">
+          <div className="bgSubccription lg:my-10 rounded-[20px] relative w-full min-h-[230px]">
+            <div className="lg:px-[78px] p-7 lg:py-[84px]">
+              <h1 className="mb-5 text-2xl lg:text-7xl leading-none text-[#253D4E] font-bold">
+                Stay home &amp; get your daily
+                <br />
+                needs from our shop
+              </h1>
+              <p className="font-lato text-sm md:text-lg mb-[45px]">
+                Start Your Daily Shopping with{" "}
+                <span className="font-lato text-[#3BB77E]">Nest Mart</span>
+              </p>
+              <div className="bg-white max-w-[450px] rounded-[50px] h-16 flex relative z-10">
+                <input
+                  type="email"
+                  placeholder="Your Email Address"
+                  className="w-full h-full rounded-[50px] px-[30px] font-lato border-none outline-none placeholder:font-bold"
+                />
+                <button className="h-full rounded-[50px] px-[30px] border-none outline-none text-base  bg-[#3BB77E] text-white">
+                  subscribe
+                </button>
+              </div>
             </div>
+            <Image
+              src={subscriptionBanner}
+              className="w-2/5 absolute bottom-0 right-[50px]"
+              alt=""
+            />
           </div>
-          <Image
-            src={subscriptionBanner}
-            className="w-2/5 absolute bottom-0 right-[50px]"
-            alt=""
-          />
-        </div>
-        <div className="grid grid-cols-5 gap-5">
-          <FasilitiesCard
-            image={icon1}
-            title="Best prices &amp; offers"
-            text="Orders $50 or more"
-          />
-          <FasilitiesCard
-            image={icon2}
-            title={"Free Delivery"}
-            text={"24/7 amazing services"}
-          />
-          <FasilitiesCard
-            image={icon3}
-            title={"Great daily deal"}
-            text={"When you sign up"}
-          />
-          <FasilitiesCard
-            image={icon4}
-            title={"Wide assortment"}
-            text={"Mega Discounts"}
-          />
-          <FasilitiesCard
-            image={icon5}
-            title={"Easy returns"}
-            text={"Within 30 days"}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mt-5">
+            <FasilitiesCard
+              image={icon1}
+              title="Best prices &amp; offers"
+              text="Orders $50 or more"
+            />
+            <FasilitiesCard
+              image={icon2}
+              title={"Free Delivery"}
+              text={"24/7 amazing services"}
+            />
+            <FasilitiesCard
+              image={icon3}
+              title={"Great daily deal"}
+              text={"When you sign up"}
+            />
+            <FasilitiesCard
+              image={icon4}
+              title={"Wide assortment"}
+              text={"Mega Discounts"}
+            />
+            <FasilitiesCard
+              image={icon5}
+              title={"Easy returns"}
+              text={"Within 30 days"}
+            />
+          </div>
         </div>
         <Footer />
       </body>

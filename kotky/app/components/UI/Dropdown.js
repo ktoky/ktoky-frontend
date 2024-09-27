@@ -16,7 +16,7 @@ export default function Dropdown({
 }) {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-40 md:w-[180px]">
         <SelectValue placeholder={defaultValue} />
       </SelectTrigger>
       <SelectContent>

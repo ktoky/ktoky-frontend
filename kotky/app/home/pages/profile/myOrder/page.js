@@ -33,37 +33,43 @@ export default function page() {
         </TableHeader>
         <TableBody>
           <TableRow>
-            <TableCell className="text-black text-base">#1357</TableCell>
-            <TableCell className="text-black text-base">
+            <TableCell className="text-black text-base w-28">#1357</TableCell>
+            <TableCell className="text-black text-base w-48">
               March 45, 2020
             </TableCell>
-            <TableCell className="text-black text-base">Processing</TableCell>
-            <TableCell className="text-black text-base">
+            <TableCell className="text-black text-base w-40">
+              Processing
+            </TableCell>
+            <TableCell className="text-black text-base w-60">
               $125.00 for 2 item
             </TableCell>
-            <TableCell className="text-black text-base">View</TableCell>
+            <TableCell className="text-black text-base w-24">View</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-black text-base">#1357</TableCell>
-            <TableCell className="text-black text-base">
+            <TableCell className="text-black text-base w-28">#1357</TableCell>
+            <TableCell className="text-black text-base w-48">
               March 45, 2020
             </TableCell>
-            <TableCell className="text-black text-base">Complete</TableCell>
-            <TableCell className="text-black text-base">
+            <TableCell className="text-black text-base w-40">
+              Processing
+            </TableCell>
+            <TableCell className="text-black text-base w-60">
               $125.00 for 2 item
             </TableCell>
-            <TableCell className="text-black text-base">View</TableCell>
+            <TableCell className="text-black text-base w-24">View</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-black text-base">#1357</TableCell>
-            <TableCell className="text-black text-base">
+            <TableCell className="text-black text-base w-28">#1357</TableCell>
+            <TableCell className="text-black text-base w-48">
               March 45, 2020
             </TableCell>
-            <TableCell className="text-black text-base">Processing</TableCell>
-            <TableCell className="text-black text-base">
+            <TableCell className="text-black text-base w-40">
+              Processing
+            </TableCell>
+            <TableCell className="text-black text-base w-60">
               $125.00 for 2 item
             </TableCell>
-            <TableCell className="text-black text-base">View</TableCell>
+            <TableCell className="text-black text-base w-24">View</TableCell>
           </TableRow>
         </TableBody>
       </Table>
