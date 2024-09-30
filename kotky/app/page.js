@@ -84,7 +84,7 @@ export default function Home() {
                   <li className="text-[#253D4E] hover:text-[#3BB77E] hover:-translate-y-1 cursor-pointer duration-300 font-semibold text-sm md:text-lg">
                     Milks &amp; Dairies
                   </li>
-                  <li className="text-[#253D4E] hover:text-[#3BB77E] hover:-translate-y-1 cursor-pointer duration-300 font-semibold text-sm md:text-lg">
+                  <li className="text-[#253D4E] hover:text-[#18804f] hover:-translate-y-1 cursor-pointer duration-300 font-semibold text-sm md:text-lg">
                     Meats
                   </li>
                   <li className="text-[#253D4E] hover:text-[#3BB77E] hover:-translate-y-1 cursor-pointer duration-300 font-semibold text-sm md:text-lg">
