@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -28,8 +26,8 @@ export default function NotFound() {
             Page not found
           </h1>
           <p class="mt-4 text-gray-500 dark:text-gray-400">
-            The page you are looking for doesn't exist. Here are some helpful
-            links:
+            The page you are looking for doesn&apos;t exist. Here are some
+            helpful links:
           </p>
 
           <button class="w-1/2 mt-5 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-primary rounded-lg shrink-0 sm:w-auto hover:bg-secondary">

@@ -21,7 +21,7 @@ export default function Home() {
       <main className="px-3">
         <div className="flex gap-8">
           {/* Sidebar Start */}
-          <aside className="hidden md:flex flex-col gap-10">
+          <aside className="hidden lg:flex flex-col gap-10">
             {/* Category Start */}
 
             <Category title="Category" />
@@ -94,7 +94,7 @@ export default function Home() {
               </div>
               {/* Navigation Ends */}
               {/* Product Card start */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 my-10">
                 <Card />
                 <Card />
                 <Card />

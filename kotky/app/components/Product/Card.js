@@ -57,7 +57,9 @@ export default function Card() {
         By <span className="text-[#3BB77E] lato">NestFood</span>
       </p>
       <div className="flex items-center justify-between mt-3">
-        <p className="text-[#3BB77E] text-lg font-bold">$28.85 - 122.00</p>
+        <p className="text-[#3BB77E] text-lg font-bold">
+          $28.85 - <span className="line-through text-sm">$122.00</span>
+        </p>
         <p className="bg-[#DEF9EC] px-4 py-2 rounded text-[#29A56C] gap-[2px] text-sm font-bold flex items-center justify-center">
           <ShoppingCartIcon className="scale-90" />
           Add

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Menubar() {
   return (
-    <div className="my-3 hidden md:flex items-center justify-between border-b border-b-tertiary pb-5 mb-8 px-3">
+    <div className="my-3 hidden lg:flex items-center justify-between border-b border-b-tertiary pb-5 mb-8 px-3">
       <div className="flex items-center gap-7">
         <button className="flex items-center justify-center gap-2 bg-primary px-5 py-2 rounded text-white font-semibold">
           <WidgetsIcon />

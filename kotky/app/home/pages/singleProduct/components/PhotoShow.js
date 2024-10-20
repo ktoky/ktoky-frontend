@@ -22,9 +22,6 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "@mui/icons-material";
 
 export default function PhotoShow() {
-  const [model, setModel] = useState("");
-  const [color, setColor] = useState("");
-  const [storage, setStorage] = useState("");
   const [data, setData] = useState({});
 
   useEffect(() => {
