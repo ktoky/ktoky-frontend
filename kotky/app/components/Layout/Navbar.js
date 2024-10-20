@@ -32,7 +32,7 @@ import {
 export default function Navbar() {
   return (
     <nav className="flex items-center justify-between px-3 mt-8 pb-8 border-b border-b-tertiaryborder-tertiary">
-      <div className="md:hidden block">
+      <div className="lg:hidden block">
         <Sheet>
           <SheetTrigger asChild>
             <HamburgerMenuIcon className="scale-150" />
@@ -114,7 +114,7 @@ export default function Navbar() {
           className="w-full h-full"
         />
       </div>
-      <div className="border-2 hidden border-tertiary rounded p-1 pl-3 w-[566px] md:flex items-center justify-between">
+      <div className="border-2 hidden border-tertiary rounded p-1 pl-3 w-[566px] lg:flex items-center justify-between">
         <input
           type="text"
           placeholder="Search for products..."
@@ -124,21 +124,21 @@ export default function Navbar() {
           Search
         </button>
       </div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <button className="text-base text-primary px-3 py-2 border border-[#ececec] rounded flex items-center gap-2 shadow-md hover:-translate-y-2 transition duration-300">
           Became Vendor
           <ArrowRightAltIcon />
         </button>
       </div>
       <ul className="flex items-center gap-5">
-        <li className="hidden md:flex items-center gap-1 relative font-lato cursor-pointer">
+        <li className="hidden lg:flex items-center gap-1 relative font-lato cursor-pointer">
           <RepeatIcon />
           Compare
           <span className="bg-primary w-7 h-7 text-center rounded-full text-white absolute -top-5 left-2">
             0
           </span>
         </li>
-        <li className="hidden md:flex items-center gap-1 relative font-lato cursor-pointer">
+        <li className="hidden lg:flex items-center gap-1 relative font-lato cursor-pointer">
           <FavoriteBorderIcon />
           Wishlist
           <span className="bg-primary w-7 h-7 text-center rounded-full text-white absolute -top-5 left-2">
@@ -208,14 +208,16 @@ export default function Navbar() {
           <DropdownMenuTrigger asChild>
             <div className="cursor-pointer">
               <PersonOutlineIcon />
-              <span className="hidden md:block">Account</span>
+              <span className="hidden lg:block">Account</span>
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem>
               <Link href="/home/pages/profile">Profile</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>My Order</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/home/pages/profile/myOrder">My Order</Link>
+            </DropdownMenuItem>
             <DropdownMenuItem>
               <Link href="/authentication/login">Logout</Link>
             </DropdownMenuItem>

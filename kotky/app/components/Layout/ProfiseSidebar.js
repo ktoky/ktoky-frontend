@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Sidebar() {
+export default function ProfileSidebar() {
   const pathname = window.location.pathname;
   const segments = pathname.split("/").filter(Boolean);
   const lastSegment = segments[segments.length - 1];
@@ -11,10 +11,11 @@ export default function Sidebar() {
   const handleColor = (e) => {
     setColor(e);
   };
+
   return (
     <div className="h-full text-white md:w-72 w-full">
       <ul className="px-5 py-3 space-y-1 bg-primary rounded-r-lg">
-        <Link className="block" href="/home/pages/profile">
+        <Link className="block" href="/home/profile">
           <li
             onClick={() => handleColor("profile")}
             className={`text-lg font-semibold cursor-pointer py-2 transition-colors duration-300 ${
@@ -24,7 +25,7 @@ export default function Sidebar() {
             Profile
           </li>
         </Link>
-        <Link className="block" href="/home/pages/profile/myOrder">
+        <Link className="block" href="/home/profile/myOrder">
           <li
             onClick={() => handleColor("myOrder")}
             className={`text-lg font-semibold cursor-pointer py-2 transition-colors duration-300 ${

@@ -45,7 +45,7 @@ const datas = [
 export function TableD() {
   return (
     <div>
-      <Table className="border rounded-lg hidden">
+      <Table className="border rounded-lg hidden lg:block">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">
@@ -89,7 +89,7 @@ export function TableD() {
           ))}
         </TableBody>
       </Table>
-      <div className="flex items-center flex-col border border-Emphasis/20 p-5 rounded-md">
+      <div className="lg:hidden flex items-center flex-col border border-Emphasis/20 p-5 rounded-md">
         <Image src={img} width={200} height={200} alt="Product Image" />
         <h3 className="font-semibold text-Emphasis">
           Field Roast Chao Cheese Creamy Original
