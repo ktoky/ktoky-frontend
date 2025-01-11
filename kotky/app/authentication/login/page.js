@@ -1,12 +1,39 @@
-import loginImage from "@/public/images/login-1.png";
-import Image from "next/image";
+"use client";
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { useUserLoginMutation } from "@/redux/api/authApi";
 
-export default function page() {
+export default function Page() {
+  const [userLogin] = useUserLoginMutation();
+
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form Values:", formValues);
+
+    try {
+      const res = await userLogin({ ...formValues }).unwrap();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center justify-center py-12">
@@ -17,13 +44,16 @@ export default function page() {
               Enter your email below to login to your account
             </p>
           </div>
-          <div className="grid gap-4">
+          <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 placeholder="m@example.com"
+                value={formValues.email}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -31,7 +61,14 @@ export default function page() {
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
               </div>
-              <Input id="password" type="password" required />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                value={formValues.password}
+                onChange={handleChange}
+                required
+              />
               <Link
                 href="/forgot-password"
                 className="ml-auto inline-block text-sm underline"
@@ -42,7 +79,7 @@ export default function page() {
             <Button type="submit" className="w-full hover:bg-secondary">
               Login
             </Button>
-          </div>
+          </form>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
             <Link href="/authentication/register" className="underline">
