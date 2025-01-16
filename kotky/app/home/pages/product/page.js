@@ -3,7 +3,10 @@ import ProductSidebar from "@/app/components/Layout/ProductSidebar";
 import Card from "@/app/components/Product/Card";
 import PriceFilter from "@/app/components/Product/PriceFilter";
 import BreadCumb from "@/app/components/UI/BreadCumb";
+import CatalogMagic from "@/app/components/UI/CatalogMagic";
 import Dropdown from "@/app/components/UI/Dropdown";
+import ProductSkeleton from "@/app/components/UI/ProductSkeleton";
+import Skeleton from "@/app/components/UI/Skeleton";
 import TagBtn from "@/app/components/UI/TagBtn";
 import { useProductQuery } from "@/redux/api/productApi";
 
@@ -11,6 +14,9 @@ export default function page() {
   const { data, isLoading } = useProductQuery();
 
   console.log(data);
+  if (isLoading) {
+    return <ProductSkeleton />;
+  }
 
   return (
     <main className="px-3 flex justify-between gap-8">
