@@ -1,6 +1,5 @@
 import Image from "next/image";
-import img1 from "@/public/images/product-1-1.jpg";
-import img2 from "@/public/images/product-1-2.jpg";
+
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarIcon from "@mui/icons-material/Star";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -8,18 +7,27 @@ import LoopIcon from "@mui/icons-material/Loop";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Link from "next/link";
 
-export default function Card() {
+export default function Card({ card }) {
+  console.log(card);
   return (
     <Link
-      href="/home/pages/singleProduct"
+      href={`/home/pages/singleProduct/${card?.slug}`}
       className="group border border-[#ececec] hover:border-[#BCE3C9] rounded-2xl hover:shadow-custom group-hover:transition group-hover:duration-300 p-[25px] relative"
     >
       <div className="relative">
-        <Image src={img1} alt="" className="group-hover:hidden" />
         <Image
-          src={img2}
+          src={card?.imageDefault}
+          alt=""
+          className="group-hover:hidden"
+          width={350}
+          height={250}
+        />
+        <Image
+          src={card?.imageHover}
           alt=""
           className="hidden group-hover:block group-hover:scale-105"
+          width={350}
+          height={250}
         />
         <div className="hidden group-hover:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="flex gap-1 text-[#3BB77E] bg-white rounded-md">

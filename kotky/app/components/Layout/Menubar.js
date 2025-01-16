@@ -25,7 +25,10 @@ export default function Menubar() {
         <Link href="/" className="text-Emphasis text-base font-bold">
           About
         </Link>
-        <Link href="/" className="text-Emphasis text-base font-bold">
+        <Link
+          href="/home/pages/product"
+          className="text-Emphasis text-base font-bold"
+        >
           Shop
         </Link>
         <Link href="/" className="text-Emphasis text-base font-bold">

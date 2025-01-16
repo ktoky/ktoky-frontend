@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useUserLoginMutation } from "@/redux/api/authApi";
+import { storeUserInfo } from "@/service/auth.service";
 
 export default function Page() {
   const [userLogin] = useUserLoginMutation();
@@ -29,6 +30,7 @@ export default function Page() {
     try {
       const res = await userLogin({ ...formValues }).unwrap();
       console.log(res);
+      storeUserInfo({ accessToken: res?.data?.accessToken });
     } catch (error) {
       console.log(error);
     }

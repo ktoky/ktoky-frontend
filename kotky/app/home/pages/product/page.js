@@ -1,11 +1,17 @@
+"use client";
 import ProductSidebar from "@/app/components/Layout/ProductSidebar";
 import Card from "@/app/components/Product/Card";
 import PriceFilter from "@/app/components/Product/PriceFilter";
 import BreadCumb from "@/app/components/UI/BreadCumb";
 import Dropdown from "@/app/components/UI/Dropdown";
 import TagBtn from "@/app/components/UI/TagBtn";
+import { useProductQuery } from "@/redux/api/productApi";
 
 export default function page() {
+  const { data, isLoading } = useProductQuery();
+
+  console.log(data);
+
   return (
     <main className="px-3 flex justify-between gap-8">
       <div>
@@ -49,12 +55,9 @@ export default function page() {
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              {data?.product?.map((card) => (
+                <Card key={card.id} card={card} />
+              ))}
             </div>
           </div>
           <div className="hidden lg:block">

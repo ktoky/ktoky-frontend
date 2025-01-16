@@ -14,7 +14,7 @@ export const axiosBaseQuery =
       };
 
       const result = await axios(config);
-      return { data: result.data };
+      return { data: result.data.data };
     } catch (axiosError) {
       const err = axiosError;
       return {

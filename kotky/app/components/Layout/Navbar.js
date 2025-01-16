@@ -80,7 +80,7 @@ export default function Navbar() {
                   Shop
                 </Link>
                 <Link
-                  href="/"
+                  href="/home/pages/product"
                   className="text-Emphasis text-base font-bold border-b border-Emphasis/20 w-full pb-2"
                 >
                   Vendors
