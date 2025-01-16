@@ -21,18 +21,35 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "@mui/icons-material";
 
-export default function PhotoShow() {
+export default function PhotoShow({ product }) {
   const [model, setModel] = useState("");
   const [color, setColor] = useState("");
   const [storage, setStorage] = useState("");
   const [data, setData] = useState({});
 
+  const [images, setImages] = useState([]);
+  console.log(images);
   useEffect(() => {
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+    if (product) {
+      const imageArray = [];
 
+      // Add default and hover images
+      if (product.data.imageDefault) imageArray.push(product.data.imageDefault);
+      if (product.data.imageHover) imageArray.push(product.data.imageHover);
+
+      // Add additional details images
+      if (product.data.additionalDetails) {
+        product.data.additionalDetails.forEach((detail) => {
+          if (detail.images && Array.isArray(detail.images)) {
+            imageArray.push(...detail.images);
+          }
+        });
+      }
+
+      // Remove duplicates and update state
+      setImages(imageArray);
+    }
+  }, [product]);
   return (
     <div>
       <div className="block p-5 max-w-7xl mx-auto lg:p-0 lg:flex gap-10">
@@ -50,35 +67,24 @@ export default function PhotoShow() {
               },
             }}
           >
-            <SwiperSlide>
-              <div className="w-full h-full flex justify-center items-center">
-                <Image
-                  src={img1}
-                  alt="Image 1"
-                  className="max-w-full max-h-full object-cover object-right"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <Image src={img2} alt="Image 1" />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <Image src={img3} alt="Image 1" />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <Image src={img4} alt="Image 1" />
-              </div>
-            </SwiperSlide>
+            {images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-full flex justify-center items-center">
+                  <Image
+                    src={image}
+                    alt="Image 1"
+                    className="max-w-full max-h-full object-cover object-right"
+                    width={350}
+                    height={350}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
         <div className="mt-5 lg:mt-0">
           <h1 className="text-2xl md:text-4xl text-Emphasis font-bold">
-            Seeds of Change Organic Quinoa, Brown
+            {product.data.name}
           </h1>
           <div className="flex items-center gap-2 text-sm">
             <div>

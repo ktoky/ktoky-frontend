@@ -14,17 +14,16 @@ export default function Card({ card }) {
       className="group border border-[#ececec] hover:border-[#BCE3C9] rounded-2xl hover:shadow-custom group-hover:transition group-hover:duration-300 p-[25px] relative"
     >
       <div className="relative">
-        {card?.imageDefault && (
-          <Image
-            src={card.imageDefault}
-            alt={card?.name}
-            width={350}
-            height={250}
-          />
-        )}
+        <Image
+          src={card?.imageDefault}
+          alt=""
+          className="group-hover:hidden"
+          width={350}
+          height={250}
+        />
         <Image
           src={card?.imageHover}
-          alt={card?.name}
+          alt=""
           className="hidden group-hover:block group-hover:scale-105"
           width={350}
           height={250}

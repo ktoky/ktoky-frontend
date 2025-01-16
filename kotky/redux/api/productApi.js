@@ -4,7 +4,7 @@ const product_url = "/product";
 
 const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    product: build.query({
+    products: build.query({
       query: (arg) => ({
         url: `${product_url}`,
         method: "GET",
@@ -16,9 +16,16 @@ const productApi = baseApi.injectEndpoints({
           meta,
         };
       },
+      tagTypes: ["products"],
+    }),
+    product: build.query({
+      query: (slug) => ({
+        url: `/product/${slug}`,
+        method: "GET",
+      }),
       tagTypes: ["product"],
     }),
   }),
 });
 
-export const { useProductQuery } = productApi; //
+export const { useProductsQuery, useProductQuery } = productApi; //

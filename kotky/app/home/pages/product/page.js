@@ -6,12 +6,12 @@ import BreadCumb from "@/app/components/UI/BreadCumb";
 import CatalogMagic from "@/app/components/UI/CatalogMagic";
 import Dropdown from "@/app/components/UI/Dropdown";
 import ProductSkeleton from "@/app/components/UI/ProductSkeleton";
-import Skeleton from "@/app/components/UI/Skeleton";
+
 import TagBtn from "@/app/components/UI/TagBtn";
-import { useProductQuery } from "@/redux/api/productApi";
+import { useProductsQuery } from "@/redux/api/productApi";
 
 export default function page() {
-  const { data, isLoading } = useProductQuery();
+  const { data, isLoading } = useProductsQuery();
 
   console.log(data);
   if (isLoading) {
