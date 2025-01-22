@@ -3,20 +3,69 @@ import ProductSidebar from "@/app/components/Layout/ProductSidebar";
 import Card from "@/app/components/Product/Card";
 import PriceFilter from "@/app/components/Product/PriceFilter";
 import BreadCumb from "@/app/components/UI/BreadCumb";
-import CatalogMagic from "@/app/components/UI/CatalogMagic";
+
 import Dropdown from "@/app/components/UI/Dropdown";
 import ProductSkeleton from "@/app/components/UI/ProductSkeleton";
 
 import TagBtn from "@/app/components/UI/TagBtn";
 import { useProductsQuery } from "@/redux/api/productApi";
+import { useState } from "react";
 
 export default function page() {
-  const { data, isLoading } = useProductsQuery();
+  const query = {};
 
-  console.log(data);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(10);
+  const [sortBy, setSortBy] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  query["limit"] = size;
+  query["page"] = page;
+  query["sortBy"] = sortBy;
+  query["sortOrder"] = sortOrder;
+
+  const { data, isLoading } = useProductsQuery({ ...query });
+
   if (isLoading) {
     return <ProductSkeleton />;
   }
+  const onPaginationChange = (page, pageSize) => {
+    console.log("Page:", page, "PageSize:", pageSize);
+    setPage(page);
+    setSize(pageSize);
+  };
+  const onTableChange = (pagination, filter, sorter) => {
+    const { order, field } = sorter;
+
+    setSortBy(field);
+    setSortOrder(order === "ascend" ? "asc" : "desc");
+  };
+
+  const handleDropdownChange = (value) => {
+    console.log(value);
+    let field, order;
+
+    switch (value) {
+      case "Price Low to High":
+        field = "price";
+        order = "asc";
+        break;
+      case "Price High to Low":
+        field = "price";
+        order = "desc";
+        break;
+      case "Release Date":
+        field = "createdAt";
+        order = "desc";
+        break;
+      default:
+        field = "createdAt";
+        order = "desc";
+    }
+
+    onTableChange(null, null, { field, order });
+  };
 
   return (
     <main className="px-3 flex justify-between gap-8">
@@ -51,13 +100,15 @@ export default function page() {
                   value4={"200"}
                   value5={"All"}
                 />
-                <Dropdown
-                  defaultValue={"Featured"}
-                  value1={"Price Low to High"}
-                  value2={"Price High to Low"}
-                  value3={"Release Date"}
-                  value4={"Avg Rating"}
-                />
+                <select
+                  defaultValue={"createdAt"}
+                  onChange={(e) => handleDropdownChange(e.target.value)}
+                >
+                  <option value="createdAt">Featured</option>
+                  <option value="Price Low to High">Price Low to High</option>
+                  <option value="Price High to Low">Price High to Low</option>
+                  <option value="Release Date">Release Date</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
@@ -67,7 +118,7 @@ export default function page() {
             </div>
           </div>
           <div className="hidden lg:block">
-            <ProductSidebar />
+            <ProductSidebar setSearchTerm={setSearchTerm} />
             <PriceFilter />
           </div>
         </div>

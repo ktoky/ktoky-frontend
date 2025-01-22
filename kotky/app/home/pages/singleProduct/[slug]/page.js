@@ -8,7 +8,7 @@ export default async function page({ params }) {
   const postPromise = getProduct(slug);
 
   const product = await postPromise;
-  console.log(product);
+
   return (
     <div className="mt-14">
       <PhotoShow product={product} />

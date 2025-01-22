@@ -8,7 +8,7 @@ import CheckroomIcon from "@mui/icons-material/Checkroom";
 import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
 import SetMealIcon from "@mui/icons-material/SetMeal";
 
-export default function Category({ title }) {
+export default function Category({ title, setSearchTerm }) {
   return (
     <div className="w-[285px] h-fit bg-white shadow-custom border border-[#ececec] p-5 rounded-2xl">
       <h1 className="text-[#253D4E] text-2xl font-bold border-b border-b-[#ececec] pb-3 relative">
