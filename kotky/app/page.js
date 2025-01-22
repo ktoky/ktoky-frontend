@@ -116,9 +116,9 @@ export default function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 gap-5">
-          <AddCard img={img} />
+          {/* <AddCard img={img} />
           <AddCard img={img1} />
-          <AddCard img={img2} />
+          <AddCard img={img2} /> */}
         </div>
         {/* Category Start */}
         <CategoryCardSlider />

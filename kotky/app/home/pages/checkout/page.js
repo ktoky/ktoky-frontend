@@ -1,3 +1,5 @@
+"use server";
+
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
@@ -16,10 +18,18 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
 export default async function page() {
-  const res = await fetch("https://restcountries.com/v3.1/all");
-  const countries = await res.json();
-
-  const countryNames = countries.map((country) => country.name.common);
+  let countryNames = [];
+  try {
+    const res = await fetch("https://restcountries.com/v3.1/all");
+    if (!res.ok) {
+      throw new Error(`Failed to fetch countries: ${res.statusText}`);
+    }
+    const countries = await res.json();
+    countryNames = countries.map((country) => country.name.common);
+  } catch (error) {
+    console.error("Error fetching countries:", error);
+    countryNames = []; // Provide a fallback in case of failure
+  }
 
   return (
     <div className="px-3">
@@ -64,7 +74,7 @@ export default async function page() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup className="text-lg font-semibold">
-                    {countryNames.map((country) => (
+                    {countryNames?.map((country) => (
                       <SelectItem key={country} value={country}>
                         {country}
                       </SelectItem>

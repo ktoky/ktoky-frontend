@@ -3,23 +3,17 @@ import Image from "next/image";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import Link from "next/link";
-import img1 from "@/public/images/product-1-1.jpg";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +22,8 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
+import AddToCart from "./AddToCart";
 
 export default function Navbar() {
   return (
@@ -145,65 +141,7 @@ export default function Navbar() {
             0
           </span>
         </li>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
-                className="focus:bg-transparent hover:bg-transparent"
-                icon={false}
-              >
-                <ShoppingCartIcon />
-                Cart
-                <span className="bg-primary w-7 h-7 text-center rounded-full text-white absolute -top-5 left-2">
-                  0
-                </span>
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="w-[300px] lg:w-[400px]">
-                  <li className="pr-3">
-                    <div className="flex items-center justify-between">
-                      <Image
-                        src={img1}
-                        alt="product"
-                        width={100}
-                        height={100}
-                        className="cursor-pointer"
-                      />
-                      <div>
-                        <p className="font-semibold text-primary cursor-pointer">
-                          Yidarton Women Summer Blue
-                        </p>
-                        <p className="font-semibold">1 x $500</p>
-                      </div>
-                      <p className="cursor-pointer">
-                        <Cross1Icon />
-                      </p>
-                    </div>
-                  </li>
-                  <li className="p-3 border-t border-t-Emphasis/50">
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-Emphasis text-lg">Total</h4>
-                      <p className="text-primary font-bold">$4000</p>
-                    </div>
-                  </li>
-                  <li className="p-3">
-                    <div className="flex items-center justify-between">
-                      <Button
-                        variant="outline"
-                        className="border-secondary hover:bg-secondary hover:text-white"
-                      >
-                        <Link href="/home/pages/cart">View Cart</Link>
-                      </Button>
-                      <Button variant="default" className="hover:bg-primary">
-                        <Link href="/home/pages/checkout">Checkout</Link>
-                      </Button>
-                    </div>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <AddToCart></AddToCart>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <div className="cursor-pointer">

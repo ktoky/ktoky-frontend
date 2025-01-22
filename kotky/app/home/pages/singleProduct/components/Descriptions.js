@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import Card from "@/app/components/Product/Card";
 import { useProductsQuery } from "@/redux/api/productApi";
 
-export default function Discription({ slug }) {
+export default function Descriptions({ slug }) {
   const query = {};
   query["searchTerm"] = slug;
   const { data, isLoading } = useProductsQuery({ slug });

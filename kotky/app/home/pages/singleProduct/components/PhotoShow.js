@@ -20,6 +20,8 @@ import Weight from "./Weight";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "@mui/icons-material";
+import { addItemToCart } from "@/redux/cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 export default function PhotoShow({ product }) {
   const [model, setModel] = useState("");
@@ -28,6 +30,7 @@ export default function PhotoShow({ product }) {
   const [data, setData] = useState({});
 
   const [images, setImages] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (product) {
@@ -50,6 +53,22 @@ export default function PhotoShow({ product }) {
       setImages(imageArray);
     }
   }, [product]);
+
+  const handleAddToCart = () => {
+    // If a color is selected, dispatch the action with color
+    dispatch(
+      addItemToCart({
+        id: product?.data?.id,
+        name: product.data.name,
+        price: product?.discountedPrice,
+        image: product.data.imageDefault,
+
+        colorId: product?.data?.id, // Send the selected color along with other data
+        color: "", // Send the selected color along with other data
+      })
+    );
+  };
+
   return (
     <div>
       <div className="block p-5 max-w-7xl mx-auto lg:p-0 lg:flex gap-10">
@@ -114,7 +133,12 @@ export default function PhotoShow({ product }) {
               className="border-Emphasis text-lg max-w-16 h-10"
               defaultValue="1"
             />
-            <Button variant="default" size="lg" className="hover:bg-primary">
+            <Button
+              onClick={handleAddToCart}
+              variant="default"
+              size="lg"
+              className="hover:bg-primary"
+            >
               <ShoppingCart />
               Add to cart
             </Button>
