@@ -12,7 +12,7 @@ export default async function page({ params }) {
   return (
     <div className="mt-14">
       <PhotoShow product={product} />
-      <Discription />
+      <Discription slug={slug} />
     </div>
   );
 }

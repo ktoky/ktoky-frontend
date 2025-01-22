@@ -25,15 +25,12 @@ export default function Page() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Values:", formValues);
 
     try {
       const res = await userLogin({ ...formValues }).unwrap();
-      console.log(res);
+
       storeUserInfo({ accessToken: res?.data?.accessToken });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (

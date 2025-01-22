@@ -9,8 +9,12 @@ import categoryImage from "@/public/images/category-2.png";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useCategoryQuery } from "@/redux/api/categoryApi";
 
 export default function CategoryCardSlider() {
+  const query = {};
+  const { data, isLoading } = useCategoryQuery({ ...query });
+
   return (
     <div>
       <div className="flex items-center justify-between flex-wrap gap-10 my-8">
@@ -57,53 +61,12 @@ export default function CategoryCardSlider() {
         modules={[Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CategoryCard img={categoryImage} />
-        </SwiperSlide>
+        {data?.categories?.map((category) => (
+          <SwiperSlide key={category?.id}>
+            <CategoryCard img={category?.image} name={category?.name} />
+          </SwiperSlide>
+        ))}
       </Swiper>
-      {/* <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-8 gap-5">
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-        <CategoryCard img={categoryImage} />
-      </div> */}
     </div>
   );
 }

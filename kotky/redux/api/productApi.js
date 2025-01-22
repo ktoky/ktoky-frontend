@@ -18,14 +18,7 @@ const productApi = baseApi.injectEndpoints({
       },
       tagTypes: ["products"],
     }),
-    product: build.query({
-      query: (slug) => ({
-        url: `/product/${slug}`,
-        method: "GET",
-      }),
-      tagTypes: ["product"],
-    }),
   }),
 });
 
-export const { useProductsQuery, useProductQuery } = productApi; //
+export const { useProductsQuery } = productApi; //

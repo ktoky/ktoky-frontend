@@ -9,6 +9,7 @@ import ProductSkeleton from "@/app/components/UI/ProductSkeleton";
 
 import TagBtn from "@/app/components/UI/TagBtn";
 import { useProductsQuery } from "@/redux/api/productApi";
+import { useDebounced } from "@/redux/hooks";
 import { useState } from "react";
 
 export default function page() {
@@ -20,18 +21,25 @@ export default function page() {
   const [sortOrder, setSortOrder] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
+  console.log(query, "sea");
   query["limit"] = size;
   query["page"] = page;
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
+  const debouncedSearchTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 600,
+  });
 
+  if (!!debouncedSearchTerm) {
+    query["searchTerm"] = debouncedSearchTerm;
+  }
   const { data, isLoading } = useProductsQuery({ ...query });
 
   if (isLoading) {
     return <ProductSkeleton />;
   }
   const onPaginationChange = (page, pageSize) => {
-    console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };
@@ -43,7 +51,6 @@ export default function page() {
   };
 
   const handleDropdownChange = (value) => {
-    console.log(value);
     let field, order;
 
     switch (value) {

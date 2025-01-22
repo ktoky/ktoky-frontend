@@ -12,9 +12,9 @@ export const axiosBaseQuery =
         headers,
         meta, // Include meta only if it's provided
       };
-
+      console.log(params);
       const result = await axios(config);
-      return { data: result.data.data, meta: result.data.meta.meta };
+      return { data: result?.data?.data, meta: result?.data?.meta?.meta };
     } catch (axiosError) {
       const err = axiosError;
       return {

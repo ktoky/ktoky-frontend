@@ -28,7 +28,7 @@ export default function PhotoShow({ product }) {
   const [data, setData] = useState({});
 
   const [images, setImages] = useState([]);
-  console.log(images);
+
   useEffect(() => {
     if (product) {
       const imageArray = [];

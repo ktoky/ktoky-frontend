@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Form } from "@/components/ui/form";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -6,8 +8,13 @@ import Rating from "./Rating";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Card from "@/app/components/Product/Card";
+import { useProductsQuery } from "@/redux/api/productApi";
 
-export default function Discription() {
+export default function Discription({ slug }) {
+  const query = {};
+  query["searchTerm"] = slug;
+  const { data, isLoading } = useProductsQuery({ slug });
+  console.log(data, slug, "search");
   return (
     <div className="lg:ml-20">
       <Tabs defaultValue="discription" className="w-full px-5">
@@ -91,13 +98,9 @@ export default function Discription() {
           Related products
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5 px-5 mb-5 md:mb-0">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {data?.product.map((card, id) => (
+            <Card key={id} card={card} />
+          ))}
         </div>
       </div>
     </div>
