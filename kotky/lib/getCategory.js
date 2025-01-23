@@ -1,7 +1,5 @@
 export default async function getCategory() {
-  const result = await fetch(
-    "https://leather-for-luxury.vercel.app/api/v1/category"
-  );
+  const result = await fetch("http://localhost:5000/api/v1/category");
 
   return result.json();
 }

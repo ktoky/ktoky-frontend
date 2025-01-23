@@ -8,10 +8,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import img1 from "@/public/images/banner-1.png";
-import img2 from "@/public/images/banner-2.png";
-import img3 from "@/public/images/banner-3.png";
-import img4 from "@/public/images/banner-5-min.png";
+
 import { useEffect, useState } from "react";
 
 import Image from "next/image";
@@ -25,9 +22,11 @@ import { useDispatch } from "react-redux";
 
 export default function PhotoShow({ product }) {
   const [model, setModel] = useState("");
-  const [color, setColor] = useState("");
+  const [price, setPrice] = useState(product.data.price[0]?.price || "0");
+  const [selectedWeight, setSelectedWeight] = useState(
+    product.data.price[0]?.weight || ""
+  );
   const [storage, setStorage] = useState("");
-  const [data, setData] = useState({});
 
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
@@ -60,11 +59,11 @@ export default function PhotoShow({ product }) {
       addItemToCart({
         id: product?.data?.id,
         name: product.data.name,
-        price: product?.discountedPrice,
+        price: price,
         image: product.data.imageDefault,
 
         colorId: product?.data?.id, // Send the selected color along with other data
-        color: "", // Send the selected color along with other data
+        weight: selectedWeight, // Send the selected color along with other data
       })
     );
   };
@@ -116,7 +115,7 @@ export default function PhotoShow({ product }) {
             (32 reviews)
           </div>
           <h1 className="text-3xl md:text-6xl font-bold text-primary mt-5">
-            $38
+            ${price}
           </h1>
           <p className="text-sm md:text-base text-primary mt-3 font-semibold">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
@@ -125,7 +124,12 @@ export default function PhotoShow({ product }) {
           </p>
           <div className="flex gap-3 md:gap-5 items-center mt-5">
             <p className="font-semibold text-sm">Size/Weight:</p>
-            <Weight />
+            <Weight
+              price={product?.data?.price}
+              setPrice={setPrice}
+              setSelectedWeight={setSelectedWeight}
+              selectedWeight={selectedWeight}
+            />
           </div>
           <div className="flex gap-5 mt-6 items-center">
             <Input
