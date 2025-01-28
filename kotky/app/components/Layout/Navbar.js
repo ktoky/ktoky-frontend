@@ -141,6 +141,7 @@ export default function Navbar() {
             0
           </span>
         </li>
+        {/* add to card */}
         <AddToCart></AddToCart>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

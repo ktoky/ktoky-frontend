@@ -22,7 +22,7 @@ export default function Card({ card }) {
           height={250}
         />
         <Image
-          src={card?.imageHover}
+          src={card?.imageHover || "/default-image.jpg"}
           alt=""
           className="hidden group-hover:block group-hover:scale-105"
           width={350}

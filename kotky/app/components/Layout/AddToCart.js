@@ -18,7 +18,6 @@ const AddToCart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const cartTotal = useSelector((state) => state.cart.total);
   const dispatch = useDispatch();
-  console.log(cartTotal, "cartItems");
 
   const handleRemoverCart = (id) => {
     dispatch(removeItemFromCart({ id })); // Convert to number
@@ -48,7 +47,7 @@ const AddToCart = () => {
                       <li key={id} className="pr-3">
                         <div className="flex items-center justify-between">
                           <Image
-                            src={cart.image}
+                            src={cart?.image || "/default-image.jpg"}
                             alt="product"
                             width={100}
                             height={100}
@@ -97,10 +96,8 @@ const AddToCart = () => {
                     </li>
                   </>
                 ) : (
-                  <ul className="w-[700px] lg:w-[300px]">
-                    <li className=" text-gray-500 text-center">
-                      Your cart is empty
-                    </li>{" "}
+                  <ul className="lg:w-[400px] w-[300px] h-[200px] flex items-center justify-center ">
+                    <li className=" text-gray-500 block">Your cart is empty</li>
                   </ul>
                 )}
               </ul>

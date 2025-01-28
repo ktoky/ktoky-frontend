@@ -1,9 +1,8 @@
 import Category from "../Product/Category";
-import TagBtn from "../UI/TagBtn";
 
 export default function ProductSidebar({ setSearchTerm }) {
   return (
-    <div>
+    <div className="w-full lg:w-[285px]">
       <Category setSearchTerm={setSearchTerm} title="Category" />
     </div>
   );

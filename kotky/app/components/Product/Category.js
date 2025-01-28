@@ -1,14 +1,8 @@
 "use client";
 
-import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import GrassIcon from "@mui/icons-material/Grass";
-import LiquorIcon from "@mui/icons-material/Liquor";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import SanitizerIcon from "@mui/icons-material/Sanitizer";
-import EggIcon from "@mui/icons-material/Egg";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
-import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
-import SetMealIcon from "@mui/icons-material/SetMeal";
+
 import { useCategoryQuery } from "@/redux/api/categoryApi";
 import { useState } from "react";
 
@@ -26,7 +20,7 @@ export default function Category({ title, setSearchTerm }) {
   };
 
   return (
-    <div className="w-[285px] h-fit bg-white shadow-custom border border-[#ececec] p-5 rounded-2xl">
+    <div className="lg:w-[285px] w-full h-fit bg-white shadow-custom border border-[#ececec] p-5 rounded-2xl">
       <h1 className="text-[#253D4E] text-2xl font-bold border-b border-b-[#ececec] pb-3 relative">
         {title}
         <span className="absolute bottom-0 left-0 w-2/5 h-[2px] bg-[#BCE3C9]" />

@@ -22,9 +22,9 @@ import { useDispatch } from "react-redux";
 
 export default function PhotoShow({ product }) {
   const [model, setModel] = useState("");
-  const [price, setPrice] = useState(product.data.price[0]?.price || "0");
+  const [price, setPrice] = useState(product?.data?.price[0]?.price || "0");
   const [selectedWeight, setSelectedWeight] = useState(
-    product.data.price[0]?.weight || ""
+    product?.data?.price[0]?.weight || ""
   );
   const [storage, setStorage] = useState("");
 
@@ -36,13 +36,13 @@ export default function PhotoShow({ product }) {
       const imageArray = [];
 
       // Add default and hover images
-      if (product.data.imageDefault) imageArray.push(product.data.imageDefault);
-      if (product.data.imageHover) imageArray.push(product.data.imageHover);
+      if (product.data.imageDefault) imageArray?.push(product?.data?.imageDefault);
+      if (product.data.imageHover) imageArray.push(product?.data?.imageHover);
 
       // Add additional details images
-      if (product.data.additionalDetails) {
-        product.data.additionalDetails.forEach((detail) => {
-          if (detail.images && Array.isArray(detail.images)) {
+      if (product?.data?.additionalDetails) {
+        product?.data?.additionalDetails?.forEach((detail) => {
+          if (detail.images && Array.isArray(detail?.images)) {
             imageArray.push(...detail.images);
           }
         });
@@ -85,7 +85,7 @@ export default function PhotoShow({ product }) {
               },
             }}
           >
-            {images.map((image, index) => (
+            {images?.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className="w-full h-full flex justify-center items-center">
                   <Image
@@ -102,7 +102,7 @@ export default function PhotoShow({ product }) {
         </div>
         <div className="mt-5 lg:mt-0">
           <h1 className="text-2xl md:text-4xl text-Emphasis font-bold">
-            {product.data.name}
+            {product?.data?.name}
           </h1>
           <div className="flex items-center gap-2 text-sm">
             <div>

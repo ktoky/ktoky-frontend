@@ -35,7 +35,7 @@ export default function page() {
     query["searchTerm"] = debouncedSearchTerm;
   }
   const { data, isLoading } = useProductsQuery({ ...query });
-
+  console.log(data, "data");
   if (isLoading) {
     return <ProductSkeleton />;
   }
@@ -75,8 +75,8 @@ export default function page() {
   };
 
   return (
-    <main className="px-3 flex justify-between gap-8">
-      <div>
+    <main className="px-3 flex justify-between gap-8  w-full">
+      <div className="w-full">
         <div className="bgSubccription rounded-[20px] px-[50px] md:px-20 py-[40px] md:py-[70px] flex justify-between items-center">
           <div>
             <h1 className="text-5xl mb-[15px] text-Emphasis font-bold">
@@ -92,11 +92,13 @@ export default function page() {
             <TagBtn text="Spinach" />
           </div>
         </div>
-        <div className="flex justify-between gap-8 mt-5">
-          <div>
+        <div className="flex justify-between gap-8 mt-5 w-full flex-wrap-reverse lg:flex-nowrap  ">
+          <div className="w-full">
             <div className="flex justify-between flex-wrap items-center mb-3">
               <p className="text-sm font-medium text-Emphasis">
-                We found <span className="text-primary">29</span> items for you!
+                We found{" "}
+                <span className="text-primary">{data?.product?.length}</span>{" "}
+                items for you!
               </p>
               <div className="flex items-center gap-5">
                 <Dropdown
@@ -118,15 +120,20 @@ export default function page() {
                 </select>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
-              {data?.product?.map((card) => (
-                <Card key={card.id} card={card} />
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 w-full">
+              {data?.product && data.product.length > 0 ? (
+                data?.product?.map((card) => <Card key={card.id} card={card} />)
+              ) : (
+                <div className="flex justify-center items-center h-40">
+                  <p className="text-center col-span-full text-gray-500">
+                    No products available.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
-          <div className="hidden lg:block">
+          <div className="block w-full lg:w-[285px]">
             <ProductSidebar setSearchTerm={setSearchTerm} />
-            <PriceFilter />
           </div>
         </div>
       </div>
