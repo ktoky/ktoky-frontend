@@ -36,7 +36,8 @@ export default function PhotoShow({ product }) {
       const imageArray = [];
 
       // Add default and hover images
-      if (product.data.imageDefault) imageArray?.push(product?.data?.imageDefault);
+      if (product.data.imageDefault)
+        imageArray?.push(product?.data?.imageDefault);
       if (product.data.imageHover) imageArray.push(product?.data?.imageHover);
 
       // Add additional details images
@@ -58,9 +59,9 @@ export default function PhotoShow({ product }) {
     dispatch(
       addItemToCart({
         id: product?.data?.id,
-        name: product.data.name,
+        name: product?.data?.name,
         price: price,
-        image: product.data.imageDefault,
+        image: product?.data?.imageDefault,
 
         colorId: product?.data?.id, // Send the selected color along with other data
         weight: selectedWeight, // Send the selected color along with other data
