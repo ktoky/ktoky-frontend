@@ -1,7 +1,6 @@
 "use client";
 import ProductSidebar from "@/app/components/Layout/ProductSidebar";
 import Card from "@/app/components/Product/Card";
-import PriceFilter from "@/app/components/Product/PriceFilter";
 import BreadCumb from "@/app/components/UI/BreadCumb";
 
 import Dropdown from "@/app/components/UI/Dropdown";
@@ -26,6 +25,7 @@ export default function page() {
   query["page"] = page;
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
+  
   const debouncedSearchTerm = useDebounced({
     searchQuery: searchTerm,
     delay: 600,

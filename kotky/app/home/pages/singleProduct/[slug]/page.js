@@ -11,7 +11,7 @@ export default async function page({ params }) {
   return (
     <div className="mt-14">
       <PhotoShow product={product} />
-      <Descriptions slug={slug} />
+      <Descriptions slug={slug} product={product}/>
     </div>
   );
 }

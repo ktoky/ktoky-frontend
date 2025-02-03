@@ -1,42 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { number } from "zod";
 
-const loadStateFromLocalStorage = () => {
-  try {
-    if (typeof window !== "undefined") {
-      const serializedState = localStorage.getItem("cart");
-      const parsedState = serializedState ? JSON.parse(serializedState) : null;
-
-      if (parsedState && typeof parsedState === "object" && parsedState.cart) {
-        // Recalculate cartTotal based on the cart items
-        const cartTotal = parsedState.cart.reduce(
-          (total, item) => total + item.price * item.quantity,
-          0
-        );
-
-        return {
-          cart: parsedState.cart,
-          cartTotal: cartTotal,
-        };
-      }
-    }
-
-    return { cart: [], cartTotal: 0 };
-  } catch (e) {
-    console.error("Could not load state from localStorage", e);
-    return { cart: [], cartTotal: 0 };
-  }
-};
-
-const saveStateToLocalStorage = (state) => {
-  try {
-    if (typeof window !== "undefined") {
-      const serializedState = JSON.stringify(state);
-      localStorage.setItem("cart", serializedState);
-    }
-  } catch (e) {
-    console.error("Could not save state to localStorage", e);
-  }
-};
 
 // const initialState = loadStateFromLocalStorage();
 
@@ -91,7 +55,9 @@ const cartSlice = createSlice({
       if (existingItem) {
         // Increment the quantity without any restriction
         existingItem.quantity += 1;
-        state.total += existingItem.price; // Update the total
+        console.log("total is in redux before: ", state.total);
+        state.total += Number( existingItem.price); // Update the total
+        console.log("total is in redux after: ", state.total);
       }
     },
     decrementItem: (state, action) => {

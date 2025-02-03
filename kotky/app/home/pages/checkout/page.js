@@ -1,7 +1,10 @@
-"use server";
+"use client";
 
+import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -11,25 +14,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import Image from "next/image";
 import img from "@/public/images/product-1-1.jpg";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-
+import Image from "next/image";
+import { useSelector } from "react-redux";
 export default async function page() {
+
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const cartTotal = useSelector((state) => state.cart.total);
+  
   let countryNames = [];
-  try {
-    const res = await fetch("https://restcountries.com/v3.1/all");
-    if (!res.ok) {
-      throw new Error(`Failed to fetch countries: ${res.statusText}`);
-    }
-    const countries = await res.json();
-    countryNames = countries.map((country) => country.name.common);
-  } catch (error) {
-    console.error("Error fetching countries:", error);
-    countryNames = []; // Provide a fallback in case of failure
-  }
+
 
   return (
     <div className="px-3">
@@ -124,36 +119,23 @@ export default async function page() {
             <p className="text-xl font-semibold text-tertiary">Subtotal</p>
           </div>
           <div className="space-y-5">
-            <div className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
-              <Image src={img} alt="Product Image" width={100} height={100} />
-              <div className="flex items-center justify-between gap-5">
-                <h4 className="text-base md:text-lg font-bold">
-                  Yidarton Women Summer Blue
-                </h4>
-                <p className="font-semibold">X1</p>
+            {
+              cartItems?.map((item,index) => (
+                <div key={index} className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
+                <Image src={img} alt="Product Image" width={100} height={100} />
+                <div className="flex items-center justify-between gap-5">
+                  <h4 className="text-base md:text-lg font-bold">
+                   {item?.name}
+                  </h4>
+                  <p className="font-semibold">X{item.quantity}</p>
+                </div>
+                <p className="text-3xl font-bold text-primary">${item.quantity * item.price}</p>
               </div>
-              <p className="text-3xl font-bold text-primary">$13.3</p>
-            </div>
-            <div className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
-              <Image src={img} alt="Product Image" width={100} height={100} />
-              <div className="flex items-center justify-between gap-5">
-                <h4 className="text-base md:text-lg font-bold">
-                  Yidarton Women Summer Blue
-                </h4>
-                <p className="font-semibold">X1</p>
-              </div>
-              <p className="text-3xl font-bold text-primary">$13.3</p>
-            </div>
-            <div className="border border-Emphasis/20 p-3 rounded-md flex items-center justify-between flex-col md:flex-row gap-4 md:gap-7">
-              <Image src={img} alt="Product Image" width={100} height={100} />
-              <div className="flex items-center justify-between gap-5">
-                <h4 className="text-base md:text-lg font-bold">
-                  Yidarton Women Summer Blue
-                </h4>
-                <p className="font-semibold">X1</p>
-              </div>
-              <p className="text-3xl font-bold text-primary">$13.3</p>
-            </div>
+              ))
+            }
+         
+           
+           
           </div>
           <div className="mt-5">
             <h3 className="text-3xl font-bold text-Emphasis">Payment</h3>

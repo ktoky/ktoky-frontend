@@ -2,50 +2,20 @@ import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/components/ui/table";
-import Image from "next/image";
-import img from "@/public/images/product-1-1.jpg";
-import { Input } from "@/components/ui/input";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Star } from "@mui/icons-material";
+import Image from "next/image";
 
-const datas = [
-  {
-    image: img,
-    productName: "Field Roast Chao Cheese Creamy Original",
-    productRating: 4,
-    price: "23.5",
-  },
-  {
-    image: img,
-    productName: "Field Roast Chao Cheese Creamy Original",
-    productRating: 4,
-    price: "23.5",
-  },
-  {
-    image: img,
-    productName: "Field Roast Chao Cheese Creamy Original",
-    productRating: 4,
-    price: "23.5",
-  },
-  {
-    image: img,
-    productName: "Field Roast Chao Cheese Creamy Original",
-    productRating: 4,
-    price: "23.5",
-  },
-];
 
-export function TableD() {
+
+export function TableD({ cartItems ,handleDecrementItem,handleIncrementItem,handleRemovefromCart}) {
   return (
     <div>
-      <Table className="border rounded-lg hidden">
+      <Table className="border rounded-lg ">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">
@@ -59,8 +29,8 @@ export function TableD() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {datas.map((data) => (
-            <TableRow key={data.productName}>
+          {cartItems.map((data) => (
+            <TableRow key={data.id}>
               <TableCell>
                 <Checkbox />
               </TableCell>
@@ -73,50 +43,73 @@ export function TableD() {
                 />
                 <div>
                   <p className="font-semibold text-Emphasis">
-                    {data.productName}
+                    {data.name}
                   </p>
                 </div>
               </TableCell>
               <TableCell>${data.price}</TableCell>
               <TableCell>
-                <Input type="number" defaultValue="1" />
+                <div className="quantity_section ">
+                  <div className="inner flex">
+
+                    <button className="border border-2 px-2 py-2 hover:bg-gray-800 hover:text-white transition  hover:border-black" onClick={() => { handleDecrementItem(data?.colorId) }}>
+                      -
+                    </button>
+
+
+                    <span className="px-3 py-3  border-t-2 border-b-2">{data?.quantity}</span>
+
+
+                    <button className="border border-2 px-2 py-2 hover:bg-gray-800 hover:text-white transition  hover:border-black" onClick={() => { handleIncrementItem(data?.colorId) }}>
+                      +
+                    </button>
+                  </div>
+                </div>
               </TableCell>
-              <TableCell>$25</TableCell>
+              <TableCell>${data.quantity * data.price}</TableCell>
               <TableCell>
-                <DeleteIcon />
+                <DeleteIcon onClick={()=>{handleRemovefromCart(data.colorId)}} className="cursor-pointer"/>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <div className="flex items-center flex-col border border-Emphasis/20 p-5 rounded-md">
-        <Image src={img} width={200} height={200} alt="Product Image" />
-        <h3 className="font-semibold text-Emphasis">
-          Field Roast Chao Cheese Creamy Original
-        </h3>
-        <div className="my-2">
-          <Star className="text-yellow-300" />
-          <Star className="text-yellow-300" />
-          <Star className="text-yellow-300" />
-          <Star className="text-yellow-300" />
-          <Star className="text-yellow-300" />
-          (4.0)
-        </div>
-        <div className="space-y-5 w-full">
-          <div className="flex items-center justify-between w-full">
-            <p className="font-bold text-lg">Price: </p>
-            <p className="font-bold text-3xl text-primary">$2.35</p>
-          </div>
-          <div className="flex items-center justify-between w-full">
-            <p className="font-bold text-lg">Stock: </p>
-            <Input type="number" defaultValue="1" className="w-16 text-lg" />
-          </div>
-          <div className="flex items-center justify-between w-full">
-            <p className="font-bold text-lg">Remove: </p>
-            <DeleteIcon />
-          </div>
-        </div>
-      </div>
+
+      {/*       
+                 {
+                    cartItems?.map((data,index) => (
+                    <div key={index} className="flex items-center flex-col border border-Emphasis/20 p-5 rounded-md">
+                    <Image src={data.image} width={200} height={200} alt="Product Image" />
+                    <h3 className="font-semibold text-Emphasis">
+                      {data.name}
+                    </h3>
+                    <div className="my-2">
+                      <Star className="text-yellow-300" />
+                      <Star className="text-yellow-300" />
+                      <Star className="text-yellow-300" />
+                      <Star className="text-yellow-300" />
+                      <Star className="text-yellow-300" />
+                      (4.0)
+                    </div>
+                    <div className="space-y-5 w-full">
+                      <div className="flex items-center justify-between w-full">
+                        <p className="font-bold text-lg">Price: </p>
+                        <p className="font-bold text-3xl text-primary">${data.price}</p>
+                      </div>
+                      <div className="flex items-center justify-between w-full">
+                        <p className="font-bold text-lg">Stock: </p>
+                        <Input type="number" defaultValue="1" className="w-16 text-lg" />
+                      </div>
+                      <div className="flex items-center justify-between w-full">
+                        <p className="font-bold text-lg">Remove: </p>
+                        <DeleteIcon />
+                      </div>
+                    </div>
+                  </div>
+                  )
+                 )
+      }
+       */}
     </div>
   );
 }
