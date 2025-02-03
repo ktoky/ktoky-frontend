@@ -2,23 +2,22 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
-import { Navigation } from "swiper/modules";
-import { Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 // import Swiper CSS
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
-import Star from "@mui/icons-material/Star";
-import Weight from "./Weight";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "@mui/icons-material";
+import { Input } from "@/components/ui/input";
 import { addItemToCart } from "@/redux/cart/cartSlice";
+import { ShoppingCart } from "@mui/icons-material";
+import Star from "@mui/icons-material/Star";
+import Image from "next/image";
 import { useDispatch } from "react-redux";
+import Weight from "./Weight";
 
 export default function PhotoShow({ product }) {
   const [model, setModel] = useState("");
@@ -36,15 +35,15 @@ export default function PhotoShow({ product }) {
       const imageArray = [];
 
       // Add default and hover images
-      if (product.data.imageDefault)
+      if (product?.data?.imageDefault)
         imageArray?.push(product?.data?.imageDefault);
-      if (product.data.imageHover) imageArray.push(product?.data?.imageHover);
+      if (product?.data?.imageHover) imageArray.push(product?.data?.imageHover);
 
       // Add additional details images
       if (product?.data?.additionalDetails) {
         product?.data?.additionalDetails?.forEach((detail) => {
-          if (detail.images && Array.isArray(detail?.images)) {
-            imageArray.push(...detail.images);
+          if (detail?.images && Array.isArray(detail?.images)) {
+            imageArray?.push(...detail?.images);
           }
         });
       }
@@ -62,7 +61,6 @@ export default function PhotoShow({ product }) {
         name: product?.data?.name,
         price: price,
         image: product?.data?.imageDefault,
-
         colorId: product?.data?.id, // Send the selected color along with other data
         weight: selectedWeight, // Send the selected color along with other data
       })

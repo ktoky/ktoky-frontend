@@ -2,15 +2,11 @@
 
 import { useState } from "react";
 
-export default function Rating({ maxStars = 5, onRate }) {
+export default function Rating({ maxStars = 5, value, setOnRate }) {
   const [hoveredStar, setHoveredStar] = useState(0);
-  const [selectedStar, setSelectedStar] = useState(0);
 
   const handleClick = (rating) => {
-    setSelectedStar(rating);
-    if (onRate) {
-      onRate(rating);
-    }
+    setOnRate(rating); // Update rating in parent component
   };
 
   const handleMouseEnter = (rating) => {
@@ -30,8 +26,7 @@ export default function Rating({ maxStars = 5, onRate }) {
             key={rating}
             style={{
               cursor: "pointer",
-              color:
-                rating <= (hoveredStar || selectedStar) ? "#ffd700" : "#e4e5e9",
+              color: rating <= (hoveredStar || value) ? "#ffd700" : "#e4e5e9",
               fontSize: "2rem",
             }}
             onClick={() => handleClick(rating)}
